@@ -15,6 +15,7 @@ jobs:
     steps:
       - checkout
       - run:
+          working_directory: ~/artifacts
           name: "Say hello"
           command: |
             mkdir artifacts/
@@ -23,12 +24,12 @@ jobs:
             cd ..
       # Test
       - attach_workspace:
-          at: ./artifacts 
+          at: ~/artifacts 
       - store_artifacts:
-          path: ./artifacts
+          path: ~/artifacts
       - persist_to_workspace:
-          root: ./artifacts
-          paths: ./artifacts   
+          root: ~/artifacts
+          paths: ~/artifacts   
        
     
   publish-github-release:
@@ -36,7 +37,7 @@ jobs:
       - image: cibuilds/github:0.10
     steps:
       - attach_workspace:
-          at: ./artifacts
+          at: ~/artifacts
       - run:
           name: "Publish Release on GitHub"
           command: |
