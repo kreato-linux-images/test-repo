@@ -22,8 +22,14 @@ jobs:
             echo "hi" > test.txt
             cd ..
       # Test
+      - attach_workspace:
+          at: ./artifacts 
       - store_artifacts:
           path: ./artifacts
+      - persist_to_workspace:
+          root: ./artifacts
+          paths: ./artifacts   
+       
     
   publish-github-release:
     docker:
