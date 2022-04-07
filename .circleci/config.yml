@@ -50,5 +50,5 @@ workflows:
     jobs:
       - say-hello
       - publish-github-release
-        requires:
-          - say-hello
+          requires:
+            - say-hello
