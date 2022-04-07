@@ -49,6 +49,6 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - publish-github-release
+      - publish-github-release:
           requires:
             - say-hello
