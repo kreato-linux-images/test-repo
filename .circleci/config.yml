@@ -29,7 +29,7 @@ jobs:
           path: ~/artifacts
       - persist_to_workspace:
           root: ~/artifacts
-          paths: ~/artifacts   
+          paths: ./artifacts   
        
     
   publish-github-release:
@@ -50,3 +50,5 @@ workflows:
     jobs:
       - say-hello
       - publish-github-release
+        requires:
+          - say-hello
