@@ -21,6 +21,7 @@ jobs:
             cd artifacts/
             echo "hi" > test.txt
             cd ..
+      # Test
       - store_artifacts:
           path: ./artifacts
     
